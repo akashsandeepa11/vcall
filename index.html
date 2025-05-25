@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Call</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Simple Video Call</h1>
+
+    <!-- Main container for video elements -->
+    <div class="video-container">
+        <!-- Local video display section -->
+        <div>
+            <h2>Local Video</h2>
+            <!-- The 'video' tag is used to embed video content.
+                 'id="localVideo"' identifies this element for JavaScript control.
+                 'autoplay' attribute ensures the video starts playing as soon as it's ready.
+                 'playsinline' attribute is important for video playback directly in the layout on mobile browsers (iOS).
+                 'muted' attribute mutes the local video to prevent audio feedback loops during testing. -->
+            <video id="localVideo" autoplay playsinline muted></video>
+        </div>
+        <!-- Remote video display section -->
+        <div>
+            <h2>Remote Video</h2>
+            <!-- The 'video' tag for the remote peer's video.
+                 'id="remoteVideo"' identifies this element for JavaScript control.
+                 'autoplay' and 'playsinline' serve the same purpose as for the local video.
+                 It is not muted by default, as we want to hear the remote peer. -->
+            <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+    </div>
+
+    <!-- Container for call control buttons -->
+    <div class="controls">
+        <!-- Button to initiate the call.
+             'id="startButton"' allows JavaScript to attach an event listener. -->
+        <button id="startButton">Start Call</button>
+        <!-- Button to end the call.
+             'id="hangupButton"' allows JavaScript to attach an event listener.
+             'disabled' attribute makes the button initially unclickable until a call is active. -->
+        <button id="hangupButton" disabled>Hang Up</button>
+    </div>
+
+    <!-- Manual Signaling Section: Used for manually exchanging WebRTC connection information (SDP and ICE candidates)
+         between two peers in separate browser windows/tabs without a dedicated signaling server. -->
+    <div class="signaling-container">
+        <h2>Manual Signaling</h2>
+        <!-- Section for Session Description Protocol (SDP) offer/answer exchange -->
+        <div>
+            <h3>Session Description (Offer/Answer SDP)</h3>
+            <!-- Textarea for the callee to paste the offer SDP received from the caller.
+                 'id="sdpOfferInput"' for JavaScript access. -->
+            <textarea id="sdpOfferInput" placeholder="Paste Offer SDP here (if you are Callee)"></textarea>
+            <!-- Button for the caller to generate an SDP offer.
+                 'id="createOfferButton"' for JavaScript access. -->
+            <button id="createOfferButton">1. Create Offer</button>
+            <!-- Button for the callee to generate an SDP answer after pasting the caller's offer.
+                 'id="createAnswerButton"' for JavaScript access. -->
+            <button id="createAnswerButton">2. Create Answer (after pasting Offer)</button>
+            <!-- Textarea to display the generated SDP answer (for the callee to copy and send to the caller).
+                 'id="sdpAnswerOutput"' for JavaScript access. 'readonly' prevents user input. -->
+            <textarea id="sdpAnswerOutput" placeholder="Answer SDP will appear here (copy to Caller)" readonly></textarea>
+            <!-- Textarea to display the generated SDP offer (for the caller to copy and send to the callee).
+                 'id="sdpOfferOutput"' for JavaScript access. 'readonly' prevents user input. -->
+            <textarea id="sdpOfferOutput" placeholder="Offer SDP will appear here (copy to Callee)" readonly></textarea>
+            <!-- Button for the caller to process the SDP answer received from the callee.
+                 'id="receiveAnswerButton"' for JavaScript access. -->
+            <button id="receiveAnswerButton">3. Receive Answer (Caller: paste Answer here)</button>
+            <!-- Textarea for the caller to paste the answer SDP received from the callee.
+                 'id="sdpAnswerInput"' for JavaScript access. -->
+            <textarea id="sdpAnswerInput" placeholder="Paste Answer SDP here (if you are Caller)"></textarea>
+        </div>
+        <!-- Section for Interactive Connectivity Establishment (ICE) candidates exchange -->
+        <div>
+            <h3>ICE Candidates</h3>
+            <!-- Textarea for pasting ICE candidates received from the remote peer.
+                 'id="iceCandidateInput"' for JavaScript access. -->
+            <textarea id="iceCandidateInput" placeholder="Paste received ICE candidate here"></textarea>
+            <!-- Button to add a received ICE candidate to the RTCPeerConnection.
+                 'id="addIceCandidateButton"' for JavaScript access. -->
+            <button id="addIceCandidateButton">Add Remote ICE Candidate</button>
+            <!-- Textarea to display locally generated ICE candidates (to be copied and sent to the remote peer).
+                 'id="iceCandidateOutput"' for JavaScript access. 'readonly' prevents user input. -->
+            <textarea id="iceCandidateOutput" placeholder="Local ICE candidates will appear here (copy to other peer)" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- Link to the external JavaScript file containing the WebRTC logic. -->
+    <script src="script.js"></script>
+</body>
+</html>

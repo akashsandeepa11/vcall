@@ -1,0 +1,157 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif; /* Sets the default font for the page */
+    margin: 0; /* Removes default browser margins */
+    padding: 20px; /* Adds some space around the content */
+    background-color: #f4f4f4; /* Light grey background color for the page */
+    color: #333; /* Default text color */
+}
+
+/* Main heading style */
+h1 {
+    text-align: center; /* Centers the main heading */
+    color: #333; /* Text color for the main heading */
+}
+
+/* Sub-heading style (e.g., "Local Video", "Remote Video") */
+h2 {
+    text-align: center; /* Centers sub-headings */
+    font-size: 1em; /* Slightly smaller font size for sub-headings */
+    color: #555; /* Dark grey text color for sub-headings */
+    margin-top: 0; /* Removes default top margin for h2 elements */
+}
+
+/* Styling for the container holding the local and remote video elements */
+.video-container {
+    display: flex; /* Uses flexbox to arrange child elements (video divs) in a row */
+    justify-content: space-around; /* Distributes space evenly around the video divs */
+    margin-bottom: 20px; /* Adds space below the video container */
+    background-color: #fff; /* White background for this container */
+    padding: 20px; /* Padding inside the container */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for a "card" effect */
+}
+
+/* Styling for individual divs within the video-container (each holding a video element) */
+.video-container div {
+    width: 48%; /* Each video div takes up slightly less than half the container width to allow for spacing */
+    border: 1px solid #ddd; /* Light grey border around each video div */
+    border-radius: 4px; /* Rounded corners for the video divs */
+    padding: 10px; /* Padding inside each video div */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Very subtle shadow for the video divs */
+}
+
+/* Styling for the video elements themselves */
+video {
+    width: 100%; /* Makes the video element fill the width of its parent div */
+    height: auto; /* Maintains aspect ratio */
+    background-color: #000; /* Black background for the video area, visible before video loads */
+    border-radius: 4px; /* Rounded corners for the video element */
+}
+
+/* Styling for the container of control buttons (Start, Hang Up) */
+.controls {
+    text-align: center; /* Centers the buttons within this div */
+    margin-top: 20px; /* Space above the controls container */
+}
+
+/* General styling for all buttons */
+button {
+    padding: 10px 20px; /* Padding inside buttons */
+    margin: 0 10px; /* Margin around buttons */
+    border: none; /* Removes default browser border */
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+    font-size: 16px; /* Font size for button text */
+    transition: background-color 0.3s ease; /* Smooth transition for background color changes (e.g., on hover) */
+}
+
+/* Specific styling for the "Start Call" button */
+#startButton {
+    background-color: #28a745; /* Green background color */
+    color: white; /* White text color */
+}
+
+/* Hover effect for the "Start Call" button */
+#startButton:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Specific styling for the "Hang Up" button */
+#hangupButton {
+    background-color: #dc3545; /* Red background color */
+    color: white; /* White text color */
+}
+
+/* Hover effect for the "Hang Up" button */
+#hangupButton:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Styling for the "Hang Up" button when it's disabled */
+#hangupButton:disabled {
+    background-color: #6c757d; /* Grey background when disabled */
+    cursor: not-allowed; /* Indicates the button is not clickable */
+}
+
+/* Styles for Manual Signaling Section */
+/* Container for all manual signaling UI elements */
+.signaling-container {
+    margin-top: 30px; /* Space above the signaling container */
+    padding: 20px; /* Padding inside the container */
+    background-color: #e9ecef; /* Light grey background for this section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+/* Heading for the signaling section ("Manual Signaling") */
+.signaling-container h2 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Text color */
+    margin-bottom: 20px; /* Space below this heading */
+}
+
+/* Sub-headings within the signaling section (e.g., "Session Description", "ICE Candidates") */
+.signaling-container h3 {
+    font-size: 0.9em; /* Slightly smaller font size */
+    color: #444; /* Dark grey text color */
+    margin-top: 15px; /* Space above these sub-headings */
+    margin-bottom: 5px; /* Space below these sub-headings */
+}
+
+/* Styling for divs within the signaling container, used for grouping elements */
+.signaling-container div {
+    margin-bottom: 15px; /* Space below each group of signaling elements */
+}
+
+/* Styling for textarea elements used for SDP and ICE candidate exchange */
+.signaling-container textarea {
+    width: 95%; /* Textareas take most of the width of their parent */
+    min-height: 80px; /* Minimum height for textareas */
+    padding: 10px; /* Padding inside textareas */
+    margin-bottom: 10px; /* Space below textareas */
+    border: 1px solid #ced4da; /* Standard border color */
+    border-radius: 4px; /* Rounded corners */
+    font-family: monospace; /* Monospace font for easier reading of code-like text (SDP, JSON) */
+    font-size: 0.9em; /* Slightly smaller font size */
+}
+
+/* Styling for buttons within the signaling container */
+.signaling-container button {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    margin-right: 10px; /* Space to the right of buttons */
+    margin-bottom: 5px; /* Space below buttons, useful if they wrap on smaller screens */
+}
+
+/* Hover effect for buttons in the signaling container */
+.signaling-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Specific styling for output textareas (those that are read-only)
+   to make them look less interactive. */
+#sdpAnswerOutput, #sdpOfferOutput, #iceCandidateOutput {
+    background-color: #f8f9fa; /* Very light grey background, indicating read-only */
+    color: #495057; /* Muted text color */
+}
