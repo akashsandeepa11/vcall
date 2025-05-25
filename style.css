@@ -155,3 +155,93 @@ button {
     background-color: #f8f9fa; /* Very light grey background, indicating read-only */
     color: #495057; /* Muted text color */
 }
+
+/* Styles for New Call Control UI Elements */
+.call-controls {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9ecef; /* Light grey background, similar to old signaling */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center; /* Center align the content of call-controls */
+}
+
+.call-controls h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.control-group {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    /* background-color: #f8f9fa; /* Slightly different background for groups */
+    /* border: 1px solid #dee2e6; */
+}
+
+.control-group button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    margin: 5px; /* Add some margin around buttons */
+}
+
+.control-group button:hover {
+    background-color: #0056b3;
+}
+
+.control-group input[type="text"] {
+    padding: 10px;
+    margin-right: 10px; /* Space between input and join button */
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    min-width: 200px; /* Ensure input is reasonably wide */
+}
+
+.call-id-display {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px dashed #007bff; /* Dashed border to highlight it */
+    color: #007bff; /* Blue text */
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 4px;
+    word-wrap: break-word; /* Ensure long IDs wrap */
+    display: inline-block; /* Allow centering if text-align is on parent */
+    min-width: 250px; /* Min width for display */
+    min-height: 1.5em; /* Ensure it has some height even when empty */
+}
+
+.call-status {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #d1ecf1; /* Light cyan for info */
+    border: 1px solid #bee5eb;
+    color: #0c5460; /* Dark cyan text */
+    border-radius: 4px;
+    min-height: 1.5em; /* Ensure it has some height even when empty */
+}
+
+.control-divider {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid #ced4da;
+}
+
+/* Ensure hangup button styling is consistent if it wasn't in a .control-group before */
+#hangupButton {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+#hangupButton:hover {
+    background-color: #c82333;
+}
+
+#hangupButton:disabled {
+    background-color: #6c757d; /* Gray */
+    cursor: not-allowed;
+}
