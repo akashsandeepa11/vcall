@@ -32,7 +32,21 @@ const configuration = {
 // WebSocket server URL.
 // This URL must point to the running WebSocket signaling server (server.js).
 // IMPORTANT: If the server's port (in server.js) is changed, this URL must also be updated.
-const WEBSOCKET_URL = 'ws://localhost:8080'; // Defaulting to localhost on port 8080.
+// const WEBSOCKET_URL = 'ws://localhost:8080'; // Old URL for local development
+
+// FIXME: IMPORTANT FOR DEPLOYMENT!
+// Replace 'YOUR_SIGNALING_SERVER_DOMAIN_HERE' with the actual public URL or IP address 
+// where your Node.js signaling server (server.js) is hosted.
+// For a deployed application to work, this URL must be publicly accessible.
+// If your hosting provides HTTPS (which is common and highly recommended for security), 
+// you MUST use wss:// (WebSocket Secure) for the connection.
+// Using wss:// encrypts the signaling messages between the client and the server.
+// Most modern browsers also require a secure context (HTTPS) for WebRTC features like getUserMedia,
+// and a secure WebSocket (wss://) is necessary when the page is loaded over HTTPS.
+// Example: wss://your-cool-app.herokuapp.com or wss://signal.yourdomain.com
+// If your server is on a specific port other than the default (80 for ws, 443 for wss), include it:
+// e.g., wss://yourdomain.com:12345
+const WEBSOCKET_URL = 'wss://YOUR_SIGNALING_SERVER_DOMAIN_HERE'; 
 
 /**
  * Initializes the application.
